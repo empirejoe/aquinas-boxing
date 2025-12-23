@@ -7,7 +7,6 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import SchoolPride from '@/components/SchoolPride';
 import Legacy from '@/components/Legacy';
-import Highlights from '@/components/Highlights';
 import Streaming from '@/components/Streaming';
 import Events from '@/components/Events';
 import SocialFeed from '@/components/SocialFeed';
@@ -19,7 +18,6 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <About />
-      <Highlights />
       <Legacy />
       <SchoolPride />
       <Streaming />
