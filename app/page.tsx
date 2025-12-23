@@ -5,7 +5,6 @@
 
 import Hero from '@/components/Hero';
 import About from '@/components/About';
-import Testimonials from '@/components/Testimonials';
 import SchoolPride from '@/components/SchoolPride';
 import Legacy from '@/components/Legacy';
 import Highlights from '@/components/Highlights';
@@ -21,7 +20,6 @@ export default function Home() {
       <Hero />
       <About />
       <Highlights />
-      <Testimonials />
       <Legacy />
       <SchoolPride />
       <Streaming />

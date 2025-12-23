@@ -55,7 +55,9 @@ export default function SocialFeed() {
               @AquinasMissionBouts
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/aqboxing/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

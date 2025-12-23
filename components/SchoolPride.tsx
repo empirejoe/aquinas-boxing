@@ -104,16 +104,20 @@ export default function SchoolPride() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#"
+              href="https://www.aquinasinstitute.com/admissions"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 bg-gold-500 hover:bg-gold-400 text-maroon-900 font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl"
             >
               Schedule a Campus Tour
             </a>
             <a
-              href="#"
+              href="https://www.aquinasinstitute.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold text-lg rounded-xl transition-all duration-300 border-2 border-white/30"
             >
-              Download Admissions Info
+              Visit Aquinas Institute
             </a>
           </div>
           <p className="mt-6 text-gray-400 text-sm">

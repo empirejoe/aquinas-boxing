@@ -160,7 +160,9 @@ export default function Highlights() {
             Get notified when we upload new fight highlights, training tips, and exclusive behind-the-scenes content
           </p>
           <a
-            href="#"
+            href="https://www.youtube.com/@AQ1902/search?query=boxing"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-white hover:bg-gray-100 text-red-600 font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
