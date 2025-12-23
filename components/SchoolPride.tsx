@@ -104,12 +104,12 @@ export default function SchoolPride() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://www.aquinasinstitute.com/admissions"
+              href="https://www.aquinasinstitute.com/apps/pages/index.jsp?uREC_ID=4373201&type=d"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-gold-500 hover:bg-gold-400 text-maroon-900 font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl"
             >
-              Schedule a Campus Tour
+              Learn About Admissions
             </a>
             <a
               href="https://www.aquinasinstitute.com/"
