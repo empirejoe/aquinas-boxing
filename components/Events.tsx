@@ -121,9 +121,14 @@ export default function Events() {
                   </div>
                 </div>
 
-                <button className="mt-6 w-full px-4 py-3 bg-gold-500 hover:bg-gold-600 text-black font-bold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
-                  Learn More
-                </button>
+                <a
+                  href="https://www.facebook.com/AquinasMissionBouts"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 w-full px-4 py-3 bg-gold-500 hover:bg-gold-600 text-black font-bold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg block text-center"
+                >
+                  Learn More on Facebook
+                </a>
               </div>
             </div>
           ))}
@@ -136,9 +141,14 @@ export default function Events() {
           <p className="text-gray-700 mb-6">
             Subscribe to our calendar to receive updates about upcoming matches, training sessions, and special events.
           </p>
-          <button className="px-8 py-3 bg-maroon-800 hover:bg-maroon-900 text-white font-bold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
-            Subscribe to Calendar
-          </button>
+          <a
+            href="https://www.facebook.com/AquinasMissionBouts/events"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-3 bg-maroon-800 hover:bg-maroon-900 text-white font-bold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+          >
+            View Events on Facebook
+          </a>
         </div>
       </div>
     </section>
