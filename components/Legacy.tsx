@@ -70,40 +70,21 @@ export default function Legacy() {
                   <h3 className="text-4xl font-bold mb-4 text-gold-400">
                     Muhammad Ali Visits Aquinas
                   </h3>
-                  <p className="text-xl text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-xl text-gray-300 leading-relaxed">
                     The Greatest himself visited our program, inspiring generations of young boxers and cementing Aquinas' place in boxing history. This legendary moment captured the heart and spirit of what Aquinas Boxing represents.
                   </p>
-                  <a
-                    href="https://www.youtube.com/watch?v=-KJ0V6NUEqw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl"
-                  >
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                    Watch the Historic Footage
-                  </a>
+                  <p className="text-lg text-gold-400 mt-4 font-semibold">
+                    ← Watch the historic footage
+                  </p>
                 </div>
-                <div className="relative rounded-xl overflow-hidden shadow-2xl group">
-                  <a
-                    href="https://www.youtube.com/watch?v=-KJ0V6NUEqw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/-KJ0V6NUEqw/maxresdefault.jpg"
-                      alt="Muhammad Ali at Aquinas Institute"
-                      className="w-full h-auto"
-                    />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center">
-                      <div className="w-20 h-20 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center transition-all duration-300 transform group-hover:scale-110">
-                        <svg className="w-10 h-10 text-white ml-2" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </div>
-                    </div>
-                  </a>
+                <div className="relative rounded-xl overflow-hidden shadow-2xl" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    src="https://www.youtube.com/embed/-KJ0V6NUEqw"
+                    title="Muhammad Ali Visits Aquinas Institute"
+                    className="absolute top-0 left-0 w-full h-full rounded-xl"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
                 </div>
               </div>
             </div>
