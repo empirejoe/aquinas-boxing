@@ -74,7 +74,7 @@ export default function Hero() {
             {/* Video Container */}
             <div className="relative w-full bg-black shadow-2xl border-4 border-neutral-800" style={{ paddingBottom: '56.25%' }}>
               <iframe
-                src="https://www.aquinasinstitute.com/apps/embed/?v=374814"
+                src="//www.aquinasinstitute.com/apps/embed/?v=374814"
                 title="Aquinas Boxing Program Sizzle Reel"
                 className="absolute top-0 left-0 w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
