@@ -3,23 +3,119 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 10;
+  --background-end-rgb: 0, 0, 0;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
-      transparent,
+      rgb(var(--background-start-rgb)),
       rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    );
+  position: relative;
+}
+
+/* Gritty texture overlay for entire site */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' /%3E%3C/svg%3E");
+  background-size: 150px 150px;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: overlay;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Distressed/worn text effect */
+  .text-distressed {
+    text-shadow:
+      2px 2px 0 rgba(0, 0, 0, 0.8),
+      -1px -1px 0 rgba(0, 0, 0, 0.8),
+      1px -1px 0 rgba(0, 0, 0, 0.8),
+      -1px 1px 0 rgba(0, 0, 0, 0.8);
+  }
+
+  /* Boxing tape border effect */
+  .border-tape {
+    border-style: solid;
+    border-width: 3px;
+    border-image: repeating-linear-gradient(
+      45deg,
+      #eab308,
+      #eab308 10px,
+      #ca8a04 10px,
+      #ca8a04 20px
+    ) 1;
+  }
+
+  /* Punch impact animation */
+  @keyframes punch {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+  }
+
+  .hover-punch:hover {
+    animation: punch 0.3s ease-in-out;
+  }
+
+  /* Concrete/rough texture background */
+  .bg-concrete {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+
+  /* Metal/steel shine effect */
+  .bg-steel {
+    background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  }
+
+  /* Blood red accent for dramatic effect */
+  .text-blood {
+    color: #8b0000;
+    text-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+  }
+}
+
+/* Custom scrollbar with boxing theme */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+  border-left: 2px solid #eab308;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8e1d45 0%, #430a1f 100%);
+  border: 2px solid #eab308;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #eab308 0%, #ca8a04 100%);
+}
+
+/* Selection highlight */
+::selection {
+  background-color: #eab308;
+  color: #000;
+}
+
+::-moz-selection {
+  background-color: #eab308;
+  color: #000;
 }
