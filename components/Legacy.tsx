@@ -30,8 +30,8 @@ export default function Legacy() {
   ];
 
   return (
-    <section id="legacy" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
+    <section id="legacy" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-100 via-gray-50 to-white relative overflow-hidden">
+      <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 left-0 w-full h-full" style={{
           backgroundImage: 'radial-gradient(circle at 20% 50%, gold 1px, transparent 1px), radial-gradient(circle at 80% 80%, gold 1px, transparent 1px)',
           backgroundSize: '50px 50px'

@@ -5,13 +5,16 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { US_STATES } from '@/lib/us-states';
+import Confetti from 'react-confetti';
 
 export default function FloatingNewsletter() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [streetAddress, setStreetAddress] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
@@ -20,6 +23,62 @@ export default function FloatingNewsletter() {
   const [submitMessage, setSubmitMessage] = useState('');
   const [isMinimized, setIsMinimized] = useState(false);
   const [phoneError, setPhoneError] = useState('');
+  const [zipError, setZipError] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+
+  // Update window size for confetti
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    // Set initial size
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Stop confetti after 5 seconds
+  useEffect(() => {
+    if (showConfetti) {
+      const timer = setTimeout(() => {
+        setShowConfetti(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showConfetti]);
+
+  const resetForm = () => {
+    setShowSuccess(false);
+    setEmail('');
+    setPhone('');
+    setFirstName('');
+    setLastName('');
+    setStreetAddress('');
+    setCity('');
+    setState('');
+    setZipCode('');
+    setPhoneError('');
+    setZipError('');
+    setSubmitMessage('');
+  };
+
+  // Validate ZIP code format
+  const validateZipCode = (zip: string): string | null => {
+    // If empty, that's okay (optional field)
+    if (!zip || zip.trim().length === 0) return null;
+
+    // Must be either 5 digits or 5+4 format (12345 or 12345-6789)
+    const zipPattern = /^\d{5}(-\d{4})?$/;
+    if (!zipPattern.test(zip)) {
+      return 'Invalid ZIP code format (use 12345 or 12345-6789)';
+    }
+
+    return null; // Valid
+  };
 
   // Validate phone number against NANP rules
   const validatePhoneNumber = (phoneNumber: string): string | null => {
@@ -106,6 +165,22 @@ export default function FloatingNewsletter() {
     }
   };
 
+  const handleZipChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setZipCode(e.target.value);
+    // Clear error when user starts typing
+    if (zipError) {
+      setZipError('');
+    }
+  };
+
+  const handleZipBlur = () => {
+    // Validate when user leaves the field
+    const error = validateZipCode(zipCode);
+    if (error) {
+      setZipError(error);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -121,53 +196,38 @@ export default function FloatingNewsletter() {
       }
     }
 
-    // TODO: Replace with your actual Beehiiv publication ID
-    const BEEHIIV_PUBLICATION_ID = 'YOUR_PUBLICATION_ID';
+    // Validate ZIP code before submitting
+    if (zipCode) {
+      const zipValidationError = validateZipCode(zipCode);
+      if (zipValidationError) {
+        setZipError(zipValidationError);
+        setIsSubmitting(false);
+        return;
+      }
+    }
 
     try {
-      const response = await fetch(`https://api.beehiiv.com/v2/publications/${BEEHIIV_PUBLICATION_ID}/subscriptions`, {
+      const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_BEEHIIV_API_KEY}`,
         },
         body: JSON.stringify({
           email,
-          custom_fields: {
-            phone: phone || '',
-            name,
-            street_address: streetAddress || '',
-            city: city || '',
-            state: state || '',
-            zip_code: zipCode || '',
-            mailing_address: (streetAddress || city || state || zipCode)
-              ? `${streetAddress}\n${city}, ${state} ${zipCode}`.trim()
-              : '',
-            preferences: {
-              email: true,
-              sms: phone ? true : false,
-              mail: (streetAddress || city || state || zipCode) ? true : false,
-            }
-          },
-          reactivate_existing: false,
-          send_welcome_email: true,
-          utm_source: 'floating_signup',
+          firstName,
+          lastName,
+          phone,
+          streetAddress,
+          city,
+          state,
+          zipCode,
         }),
       });
 
       if (response.ok) {
-        setSubmitMessage('Success! You\'re in the ring. Check your email!');
-        setTimeout(() => {
-          setIsModalOpen(false);
-          setEmail('');
-          setPhone('');
-          setName('');
-          setStreetAddress('');
-          setCity('');
-          setState('');
-          setZipCode('');
-          setSubmitMessage('');
-        }, 3000);
+        setShowSuccess(true);
+        setShowConfetti(true);
+        setSubmitMessage('');
       } else {
         const error = await response.json();
         setSubmitMessage(`Error: ${error.message || 'Something went wrong.'}`);
@@ -241,13 +301,27 @@ export default function FloatingNewsletter() {
           className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4"
           onClick={() => setIsModalOpen(false)}
         >
+          {showConfetti && (
+            <Confetti
+              width={windowSize.width}
+              height={windowSize.height}
+              recycle={false}
+              numberOfPieces={500}
+              gravity={0.3}
+            />
+          )}
           <div
             className="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto relative shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
             <button
-              onClick={() => setIsModalOpen(false)}
+              onClick={() => {
+                setIsModalOpen(false);
+                if (showSuccess) {
+                  resetForm();
+                }
+              }}
               className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors z-10 group"
               aria-label="Close"
             >
@@ -257,37 +331,84 @@ export default function FloatingNewsletter() {
             </button>
 
             <div className="p-8 md:p-10">
-              {/* Header */}
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                  Stay in the Loop
-                </h2>
-                <p className="text-gray-600">
-                  Get fight schedules, training updates, and exclusive news
-                </p>
-              </div>
+              {showSuccess ? (
+                /* Success Confirmation */
+                <div className="text-center py-4">
+                  <div className="mb-6">
+                    <div className="w-20 h-20 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full mx-auto flex items-center justify-center mb-4 shadow-lg">
+                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+                      You're In! 🥊
+                    </h3>
+                    <p className="text-xl text-gray-600 mb-2">
+                      Welcome to the Aquinas Boxing family
+                    </p>
+                    <p className="text-gray-500">
+                      Check your email for a welcome message and upcoming fight schedules
+                    </p>
+                  </div>
 
-              {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Name */}
-                <div>
-                  <label htmlFor="modal-name" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="modal-name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
-                    placeholder="Your full name"
-                  />
+                  <div className="pt-6 border-t border-gray-200">
+                    <button
+                      onClick={resetForm}
+                      className="text-gold-600 hover:text-gold-700 font-semibold text-sm hover:underline transition-all"
+                    >
+                      ← Make another submission
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {/* Header */}
+                  <div className="text-center mb-8">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 mb-4">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                      Stay in the Loop
+                    </h2>
+                    <p className="text-gray-600">
+                      Get fight schedules, training updates, and exclusive news
+                    </p>
+                  </div>
+
+                  {/* Form */}
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                {/* First Name and Last Name */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label htmlFor="modal-firstName" className="block text-sm font-semibold text-gray-700 mb-2">
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      id="modal-firstName"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      required
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                      placeholder="First name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="modal-lastName" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      id="modal-lastName"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                      required
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                      placeholder="Last name"
+                    />
+                  </div>
                 </div>
 
                 {/* Email */}
@@ -359,24 +480,36 @@ export default function FloatingNewsletter() {
 
                   {/* State and ZIP */}
                   <div className="grid grid-cols-2 gap-3">
-                    <input
-                      type="text"
-                      id="modal-state"
-                      value={state}
-                      onChange={(e) => setState(e.target.value)}
-                      maxLength={2}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none uppercase"
-                      placeholder="State"
-                    />
-                    <input
-                      type="text"
-                      id="modal-zip"
-                      value={zipCode}
-                      onChange={(e) => setZipCode(e.target.value)}
-                      maxLength={10}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
-                      placeholder="ZIP Code"
-                    />
+                    <div>
+                      <select
+                        id="modal-state"
+                        value={state}
+                        onChange={(e) => setState(e.target.value)}
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 transition-all outline-none"
+                      >
+                        <option value="">Select State</option>
+                        {US_STATES.map((s) => (
+                          <option key={s.code} value={s.code}>
+                            {s.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        id="modal-zip"
+                        value={zipCode}
+                        onChange={handleZipChange}
+                        onBlur={handleZipBlur}
+                        maxLength={10}
+                        className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none ${zipError ? 'border-red-500 focus:ring-red-500' : 'border-gray-300'}`}
+                        placeholder="ZIP Code"
+                      />
+                      {zipError && (
+                        <p className="text-xs text-red-500 mt-1">{zipError}</p>
+                      )}
+                    </div>
                   </div>
                   <p className="text-xs text-gray-500 mt-2">For physical mail updates</p>
                 </div>
@@ -403,7 +536,9 @@ export default function FloatingNewsletter() {
                 <p className="text-xs text-gray-500 text-center mt-4">
                   Unsubscribe anytime. No spam, just boxing updates.
                 </p>
-              </form>
+                </form>
+              </>
+              )}
             </div>
           </div>
         </div>

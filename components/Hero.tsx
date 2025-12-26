@@ -11,7 +11,7 @@ export default function Hero() {
     >
       {/* Subtle boxing background image */}
       <div
-        className="absolute inset-0 opacity-5 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 opacity-35 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=2000')",
         }}
@@ -55,20 +55,20 @@ export default function Hero() {
 
         {/* Featured Sizzle Reel Video */}
         <div className="mb-16">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 shadow-2xl border-4 border-gold-500/30">
             {/* Video Title */}
             <div className="text-center mb-8">
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-                More Than a Sport. It's a <span className="text-gold-600">Legacy</span>.
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+                More Than a Sport. It's a <span className="text-gold-400">Legacy</span>.
               </h3>
-              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
                 From the first bell to the final round, Aquinas Boxing transforms young athletes into disciplined champions.
                 Watch the intensity, feel the dedication, and witness the tradition that's been forging leaders for over 90 years.
               </p>
             </div>
 
             {/* Video Container */}
-            <div className="relative w-full bg-gray-900 rounded-2xl shadow-2xl overflow-hidden" style={{ paddingBottom: '56.25%' }}>
+            <div className="relative w-full bg-black rounded-2xl shadow-2xl overflow-hidden border-2 border-gold-500/20" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 src="//www.aquinasinstitute.com/apps/embed/?v=374814"
                 title="Aquinas Boxing Program Sizzle Reel"
@@ -84,7 +84,7 @@ export default function Hero() {
                 href="https://www.aquinasinstitute.com/apps/video/watch.jsp?v=374814"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gold-600 transition-colors font-medium"
+                className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-gold-400 transition-colors font-medium"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />

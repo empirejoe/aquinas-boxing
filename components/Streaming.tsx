@@ -8,7 +8,7 @@ export default function Streaming() {
     <section id="streaming" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
       {/* Boxing ring background image */}
       <div
-        className="absolute inset-0 opacity-10 bg-cover bg-center"
+        className="absolute inset-0 opacity-25 bg-cover bg-center"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?q=80&w=2000')",
           backgroundBlendMode: 'overlay'

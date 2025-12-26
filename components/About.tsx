@@ -5,7 +5,7 @@
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-100 via-gray-50 to-white relative overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 overflow-hidden">
         <video
@@ -14,7 +14,7 @@ export default function About() {
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-5"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
           style={{ filter: 'grayscale(50%) brightness(1.2)' }}
         >
           <source src="/boxing-training.mp4" type="video/mp4" />
