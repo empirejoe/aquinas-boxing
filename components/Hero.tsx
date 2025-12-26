@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden py-16"
+      className="relative min-h-screen bg-gradient-to-b from-gray-100 via-gray-50 to-white overflow-hidden py-16"
     >
       {/* Subtle boxing background image */}
       <div

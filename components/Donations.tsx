@@ -36,6 +36,11 @@ export default function Donations() {
       return;
     }
 
+    if (selectedAmount < 10) {
+      alert('Minimum donation amount is $10. This helps ensure that processing fees do not consume a large portion of your contribution.');
+      return;
+    }
+
     setIsProcessing(true);
 
     try {
@@ -163,7 +168,7 @@ export default function Donations() {
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl font-bold text-gray-400">$</span>
                   <input
                     type="number"
-                    min="1"
+                    min="10"
                     step="0.01"
                     value={customAmount}
                     onChange={(e) => {
@@ -174,6 +179,7 @@ export default function Donations() {
                     className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 text-2xl font-bold text-center placeholder-gray-400 transition-all outline-none"
                   />
                 </div>
+                <p className="text-sm text-gray-500 text-center mt-2">Minimum donation: $10</p>
               </div>
 
               {/* Fee Coverage Option */}

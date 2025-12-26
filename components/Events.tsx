@@ -56,7 +56,7 @@ export default function Events() {
   };
 
   return (
-    <section id="events" className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+    <section id="events" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Subtle background image */}
       <div
         className="absolute inset-0 opacity-5 bg-cover bg-center"
