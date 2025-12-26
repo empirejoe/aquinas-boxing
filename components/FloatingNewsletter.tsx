@@ -183,22 +183,26 @@ export default function FloatingNewsletter() {
   return (
     <>
       {/* Floating Button */}
-      <div className="fixed bottom-6 right-6 z-40">
+      <div className="fixed bottom-8 right-8 z-40">
         {!isMinimized ? (
           <button
             onClick={() => setIsModalOpen(true)}
-            className="group relative bg-gold-500 hover:bg-gold-400 text-black font-black px-6 py-4 shadow-2xl border-2 border-black transition-all duration-300 hover:scale-105 flex items-center gap-3"
+            className="group relative bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 hover:from-gold-300 hover:via-gold-400 hover:to-gold-500 text-black font-black px-8 py-5 shadow-2xl border-3 border-black transition-all duration-300 hover:scale-110 flex items-center gap-4 animate-pulse-slow"
+            style={{
+              boxShadow: '0 0 40px rgba(234, 179, 8, 0.6), 0 0 80px rgba(234, 179, 8, 0.3), 0 20px 60px rgba(0, 0, 0, 0.5)'
+            }}
             aria-label="Sign up for newsletter"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <span className="hidden sm:block uppercase tracking-wide text-sm">Get Updates</span>
+            <span className="hidden sm:block uppercase tracking-wider text-base font-black">Get Updates</span>
 
-            {/* Pulse animation */}
-            <span className="absolute -top-1 -right-1 flex h-3 w-3">
+            {/* Enhanced pulse animation */}
+            <span className="absolute -top-2 -right-2 flex h-5 w-5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-maroon-500 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-maroon-600"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-maroon-500 opacity-75 animation-delay-150"></span>
+              <span className="relative inline-flex rounded-full h-5 w-5 bg-maroon-600 shadow-lg"></span>
             </span>
 
             {/* Minimize button */}
@@ -207,10 +211,10 @@ export default function FloatingNewsletter() {
                 e.stopPropagation();
                 setIsMinimized(true);
               }}
-              className="absolute -top-2 -left-2 w-6 h-6 bg-black hover:bg-gray-800 border border-gold-500 flex items-center justify-center transition-colors"
+              className="absolute -top-3 -left-3 w-8 h-8 bg-black hover:bg-gray-800 border-2 border-gold-500 flex items-center justify-center transition-colors shadow-lg"
               aria-label="Minimize"
             >
-              <svg className="w-3 h-3 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+              <svg className="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
@@ -218,10 +222,13 @@ export default function FloatingNewsletter() {
         ) : (
           <button
             onClick={() => setIsMinimized(false)}
-            className="w-14 h-14 bg-gold-500 hover:bg-gold-400 text-black rounded-full shadow-2xl border-2 border-black flex items-center justify-center transition-all duration-300 hover:scale-110"
+            className="w-20 h-20 bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 hover:from-gold-300 hover:via-gold-400 hover:to-gold-500 text-black rounded-full shadow-2xl border-3 border-black flex items-center justify-center transition-all duration-300 hover:scale-110 animate-pulse-slow"
+            style={{
+              boxShadow: '0 0 40px rgba(234, 179, 8, 0.6), 0 0 80px rgba(234, 179, 8, 0.3), 0 20px 60px rgba(0, 0, 0, 0.5)'
+            }}
             aria-label="Show newsletter signup"
           >
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </button>

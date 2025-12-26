@@ -71,6 +71,22 @@ body::before {
     animation: punch 0.3s ease-in-out;
   }
 
+  /* Slow pulsing animation for floating button */
+  @keyframes pulse-slow {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.95;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+
   /* Concrete/rough texture background */
   .bg-concrete {
     background-image:
