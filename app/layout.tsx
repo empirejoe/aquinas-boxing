@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import FloatingNewsletter from "@/components/FloatingNewsletter";
 
 export const metadata: Metadata = {
   title: "Aquinas Boxing Program",
@@ -15,6 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         {children}
+        <FloatingNewsletter />
       </body>
     </html>
   );
