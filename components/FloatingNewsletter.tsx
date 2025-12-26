@@ -19,6 +19,59 @@ export default function FloatingNewsletter() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [isMinimized, setIsMinimized] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
+
+  // Validate phone number against NANP rules
+  const validatePhoneNumber = (phoneNumber: string): string | null => {
+    // Remove all non-digits
+    const digits = phoneNumber.replace(/\D/g, '');
+
+    // If empty, that's okay (optional field)
+    if (digits.length === 0) return null;
+
+    // Must be exactly 10 digits for US/Canada
+    if (digits.length !== 10) {
+      return 'Phone number must be 10 digits';
+    }
+
+    const areaCode = digits.slice(0, 3);
+    const exchange = digits.slice(3, 6);
+    const subscriber = digits.slice(6, 10);
+
+    // Area code rules
+    if (areaCode[0] === '0' || areaCode[0] === '1') {
+      return 'Invalid area code';
+    }
+
+    // Block obviously fake area codes
+    if (areaCode === '555' || areaCode === '000' || areaCode === '111' ||
+        areaCode === '222' || areaCode === '333' || areaCode === '444' ||
+        areaCode === '666' || areaCode === '777' || areaCode === '888' || areaCode === '999') {
+      return 'Invalid area code';
+    }
+
+    // Exchange (central office) code rules
+    if (exchange[0] === '0' || exchange[0] === '1') {
+      return 'Invalid phone number';
+    }
+
+    // Block 555-01XX (reserved for fiction)
+    if (exchange === '555' && subscriber[0] === '0' && subscriber[1] === '1') {
+      return 'Invalid phone number';
+    }
+
+    // Block common fake patterns
+    if (digits === '5555555555' || digits === '1234567890') {
+      return 'Please enter a valid phone number';
+    }
+
+    // Block all same digits
+    if (/^(\d)\1{9}$/.test(digits)) {
+      return 'Please enter a valid phone number';
+    }
+
+    return null; // Valid
+  };
 
   // Format phone number as user types
   const formatPhoneNumber = (value: string) => {
@@ -38,12 +91,35 @@ export default function FloatingNewsletter() {
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const formatted = formatPhoneNumber(e.target.value);
     setPhone(formatted);
+
+    // Clear error when user starts typing
+    if (phoneError) {
+      setPhoneError('');
+    }
+  };
+
+  const handlePhoneBlur = () => {
+    // Validate when user leaves the field
+    const error = validatePhoneNumber(phone);
+    if (error) {
+      setPhoneError(error);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitMessage('');
+
+    // Validate phone number before submitting
+    if (phone) {
+      const phoneValidationError = validatePhoneNumber(phone);
+      if (phoneValidationError) {
+        setPhoneError(phoneValidationError);
+        setIsSubmitting(false);
+        return;
+      }
+    }
 
     // TODO: Replace with your actual Beehiiv publication ID
     const BEEHIIV_PUBLICATION_ID = 'YOUR_PUBLICATION_ID';
@@ -235,10 +311,15 @@ export default function FloatingNewsletter() {
                     id="modal-phone"
                     value={phone}
                     onChange={handlePhoneChange}
-                    className="w-full px-4 py-3 bg-black border-2 border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none"
+                    onBlur={handlePhoneBlur}
+                    className={`w-full px-4 py-3 bg-black border-2 ${phoneError ? 'border-red-500' : 'border-gray-700 focus:border-gold-500'} text-white font-bold placeholder-gray-500 transition-colors outline-none`}
                     placeholder="(555) 123-4567"
                   />
-                  <p className="text-xs text-gray-500 mt-1">For text message updates</p>
+                  {phoneError ? (
+                    <p className="text-xs text-red-400 mt-1 font-semibold">{phoneError}</p>
+                  ) : (
+                    <p className="text-xs text-gray-500 mt-1">For text message updates</p>
+                  )}
                 </div>
 
                 {/* Mailing Address */}
