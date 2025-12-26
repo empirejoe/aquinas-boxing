@@ -238,48 +238,46 @@ export default function FloatingNewsletter() {
       {/* Modal */}
       {isModalOpen && (
         <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4"
           onClick={() => setIsModalOpen(false)}
         >
           <div
-            className="bg-gradient-to-br from-gray-900 to-black border-4 border-gold-500 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
+            className="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto relative shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Top tape effect */}
-            <div className="h-2 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500" />
-
             {/* Close button */}
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-6 right-6 w-12 h-12 bg-maroon-900 hover:bg-maroon-800 border-2 border-gold-500 flex items-center justify-center transition-all duration-300 z-10"
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors z-10 group"
               aria-label="Close"
             >
-              <svg className="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
-                <path strokeLinecap="square" strokeLinejoin="miter" d="M6 18L18 6M6 6l12 12" />
+              <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
 
             <div className="p-8 md:p-10">
               {/* Header */}
               <div className="text-center mb-8">
-                <div className="inline-block mb-4 px-6 py-2 bg-gold-500 border-2 border-black">
-                  <span className="text-black font-black text-xs uppercase tracking-widest">Stay In The Ring</span>
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 mb-4">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight mb-3">
-                  Never Miss a <span className="text-gold-500">Bout</span>
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                  Stay in the Loop
                 </h2>
-                <p className="text-gray-300 font-bold">
+                <p className="text-gray-600">
                   Get fight schedules, training updates, and exclusive news
                 </p>
-                <div className="w-24 h-1 bg-gold-500 mx-auto mt-4" />
               </div>
 
               {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Name */}
                 <div>
-                  <label htmlFor="modal-name" className="block text-xs font-black text-gold-400 uppercase tracking-wider mb-2">
-                    Name *
+                  <label htmlFor="modal-name" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Name
                   </label>
                   <input
                     type="text"
@@ -287,15 +285,15 @@ export default function FloatingNewsletter() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
-                    className="w-full px-4 py-3 bg-black border-2 border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                     placeholder="Your full name"
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="modal-email" className="block text-xs font-black text-gold-400 uppercase tracking-wider mb-2">
-                    📧 Email *
+                  <label htmlFor="modal-email" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Email
                   </label>
                   <input
                     type="email"
@@ -303,15 +301,15 @@ export default function FloatingNewsletter() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full px-4 py-3 bg-black border-2 border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                     placeholder="your@email.com"
                   />
                 </div>
 
                 {/* Phone */}
                 <div>
-                  <label htmlFor="modal-phone" className="block text-xs font-black text-gold-400 uppercase tracking-wider mb-2">
-                    📱 Phone (Optional)
+                  <label htmlFor="modal-phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Phone <span className="text-gray-400 font-normal">(optional)</span>
                   </label>
                   <input
                     type="tel"
@@ -319,82 +317,66 @@ export default function FloatingNewsletter() {
                     value={phone}
                     onChange={handlePhoneChange}
                     onBlur={handlePhoneBlur}
-                    className={`w-full px-4 py-3 bg-black border-2 ${phoneError ? 'border-red-500' : 'border-gray-700 focus:border-gold-500'} text-white font-bold placeholder-gray-500 transition-colors outline-none`}
+                    className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none ${phoneError ? 'border-red-500 focus:ring-red-500' : 'border-gray-300'}`}
                     placeholder="(555) 123-4567"
                   />
                   {phoneError ? (
-                    <p className="text-xs text-red-400 mt-1 font-semibold">{phoneError}</p>
+                    <p className="text-xs text-red-500 mt-1.5">{phoneError}</p>
                   ) : (
-                    <p className="text-xs text-gray-500 mt-1">For text message updates</p>
+                    <p className="text-xs text-gray-500 mt-1.5">For text message updates</p>
                   )}
                 </div>
 
                 {/* Mailing Address */}
-                <div className="border-t-2 border-maroon-800 pt-4">
-                  <p className="text-xs font-black text-gold-400 uppercase tracking-wider mb-3">
-                    📬 Mailing Address (Optional)
+                <div className="border-t border-gray-200 pt-5 mt-6">
+                  <p className="text-sm font-semibold text-gray-700 mb-4">
+                    Mailing Address <span className="text-gray-400 font-normal">(optional)</span>
                   </p>
 
                   {/* Street Address */}
                   <div className="mb-3">
-                    <label htmlFor="modal-street" className="block text-xs font-semibold text-gray-400 mb-1">
-                      Street Address
-                    </label>
                     <input
                       type="text"
                       id="modal-street"
                       value={streetAddress}
                       onChange={(e) => setStreetAddress(e.target.value)}
-                      className="w-full px-4 py-2 bg-black border border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none"
-                      placeholder="123 Main Street"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                      placeholder="Street Address"
                     />
                   </div>
 
                   {/* City */}
                   <div className="mb-3">
-                    <label htmlFor="modal-city" className="block text-xs font-semibold text-gray-400 mb-1">
-                      City
-                    </label>
                     <input
                       type="text"
                       id="modal-city"
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
-                      className="w-full px-4 py-2 bg-black border border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none"
-                      placeholder="Rochester"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                      placeholder="City"
                     />
                   </div>
 
                   {/* State and ZIP */}
                   <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label htmlFor="modal-state" className="block text-xs font-semibold text-gray-400 mb-1">
-                        State
-                      </label>
-                      <input
-                        type="text"
-                        id="modal-state"
-                        value={state}
-                        onChange={(e) => setState(e.target.value)}
-                        maxLength={2}
-                        className="w-full px-4 py-2 bg-black border border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none uppercase"
-                        placeholder="NY"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="modal-zip" className="block text-xs font-semibold text-gray-400 mb-1">
-                        ZIP Code
-                      </label>
-                      <input
-                        type="text"
-                        id="modal-zip"
-                        value={zipCode}
-                        onChange={(e) => setZipCode(e.target.value)}
-                        maxLength={10}
-                        className="w-full px-4 py-2 bg-black border border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none"
-                        placeholder="14604"
-                      />
-                    </div>
+                    <input
+                      type="text"
+                      id="modal-state"
+                      value={state}
+                      onChange={(e) => setState(e.target.value)}
+                      maxLength={2}
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none uppercase"
+                      placeholder="State"
+                    />
+                    <input
+                      type="text"
+                      id="modal-zip"
+                      value={zipCode}
+                      onChange={(e) => setZipCode(e.target.value)}
+                      maxLength={10}
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                      placeholder="ZIP Code"
+                    />
                   </div>
                   <p className="text-xs text-gray-500 mt-2">For physical mail updates</p>
                 </div>
@@ -403,32 +385,26 @@ export default function FloatingNewsletter() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group relative w-full px-6 py-4 bg-gold-500 hover:bg-gold-400 disabled:bg-gray-600 disabled:cursor-not-allowed text-black font-black text-lg uppercase tracking-wider transition-all duration-300 shadow-xl border-2 border-black overflow-hidden"
+                  className="w-full mt-6 px-6 py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
                 >
-                  <span className="relative z-10">
-                    {isSubmitting ? 'Signing Up...' : 'Join The Fight'}
-                  </span>
-                  <div className="absolute inset-0 bg-white/30 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                  {isSubmitting ? 'Signing Up...' : 'Subscribe'}
                 </button>
 
                 {/* Submit Message */}
                 {submitMessage && (
-                  <div className={`p-3 border-2 ${submitMessage.startsWith('Success') ? 'border-green-500 bg-green-500/10' : 'border-red-500 bg-red-500/10'}`}>
-                    <p className={`font-bold text-sm text-center ${submitMessage.startsWith('Success') ? 'text-green-400' : 'text-red-400'}`}>
+                  <div className={`p-4 rounded-lg ${submitMessage.startsWith('Success') ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
+                    <p className={`text-sm text-center font-medium ${submitMessage.startsWith('Success') ? 'text-green-700' : 'text-red-700'}`}>
                       {submitMessage}
                     </p>
                   </div>
                 )}
 
                 {/* Privacy Note */}
-                <p className="text-xs text-gray-500 text-center">
-                  Unsubscribe anytime. No spam, just boxing.
+                <p className="text-xs text-gray-500 text-center mt-4">
+                  Unsubscribe anytime. No spam, just boxing updates.
                 </p>
               </form>
             </div>
-
-            {/* Bottom tape effect */}
-            <div className="h-2 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500" />
           </div>
         </div>
       )}
