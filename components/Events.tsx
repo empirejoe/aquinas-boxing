@@ -47,89 +47,85 @@ export default function Events() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'registration-open':
-        return <span className="px-3 py-1 bg-gold-500 text-black text-xs font-black uppercase border border-black">Open</span>;
+        return <span className="px-3 py-1.5 bg-gradient-to-r from-gold-500 to-gold-600 text-white text-xs font-semibold rounded-full shadow-md">Open</span>;
       case 'upcoming':
-        return <span className="px-3 py-1 bg-maroon-900 text-gold-400 text-xs font-black uppercase border border-gold-500">Soon</span>;
+        return <span className="px-3 py-1.5 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">Soon</span>;
       default:
         return null;
     }
   };
 
   return (
-    <section id="events" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden">
-      {/* Boxing training background image */}
+    <section id="events" className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+      {/* Subtle background image */}
       <div
-        className="absolute inset-0 opacity-12 bg-cover bg-center"
+        className="absolute inset-0 opacity-5 bg-cover bg-center"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=2000')",
-          backgroundBlendMode: 'soft-light'
         }}
       />
 
-      {/* Gritty texture */}
-      <div className="absolute inset-0 bg-concrete opacity-25" />
-
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-6 py-2 bg-gold-500 border-2 border-black">
-            <span className="text-black font-black text-sm uppercase tracking-widest">The Schedule</span>
+          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-gold-50 to-gold-100 rounded-full shadow-sm">
+            <span className="text-gold-600 font-semibold text-sm tracking-wide">The Schedule</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4 uppercase tracking-tight">
-            Upcoming <span className="text-gold-500">Fights</span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+            Upcoming <span className="text-gold-600">Fights</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-bold">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Mark your calendar—these are battles you don't want to miss
           </p>
-          <div className="w-32 h-2 bg-gold-500 mx-auto mt-6 shadow-lg" style={{boxShadow: '0 0 20px rgba(234, 179, 8, 0.5)'}} />
+          <div className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto mt-6 rounded-full" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           {events.map((event) => (
             <div
               key={event.id}
-              className="bg-gradient-to-br from-gray-900 to-black border-2 border-gold-500/30 hover:border-gold-500 transition-all duration-300 overflow-hidden group relative"
+              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group relative border border-gray-200"
             >
-              {/* Top tape */}
-              <div className="h-2 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500" />
+              {/* Top accent */}
+              <div className="h-1 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600" />
 
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight group-hover:text-gold-400 transition-colors">{event.title}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 group-hover:text-gold-600 transition-colors">{event.title}</h3>
                   {getStatusBadge(event.status)}
                 </div>
-                <div className="inline-block px-3 py-1 bg-maroon-900 border border-gold-500 mb-4">
-                  <p className="text-sm font-black text-gold-400 uppercase">
+                <div className="inline-block px-3 py-1.5 bg-gradient-to-r from-gold-50 to-gold-100 rounded-full mb-4">
+                  <p className="text-sm font-medium text-gold-600">
                     {event.type}
                   </p>
                 </div>
 
                 <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-3 text-gray-300">
-                    <div className="w-8 h-8 bg-gold-500 flex items-center justify-center">
-                      <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
-                        <path strokeLinecap="square" strokeLinejoin="miter" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  <div className="flex items-center gap-3 text-gray-700">
+                    <div className="w-10 h-10 bg-gradient-to-br from-gold-400 to-gold-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <span className="font-bold text-lg">{event.date}</span>
+                    <span className="font-semibold text-lg">{event.date}</span>
                   </div>
 
-                  <div className="flex items-center gap-3 text-gray-300">
-                    <div className="w-8 h-8 bg-gold-500 flex items-center justify-center">
-                      <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
-                        <path strokeLinecap="square" strokeLinejoin="miter" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <div className="flex items-center gap-3 text-gray-700">
+                    <div className="w-10 h-10 bg-gradient-to-br from-gold-400 to-gold-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <span className="font-bold">{event.time}</span>
+                    <span className="font-medium">{event.time}</span>
                   </div>
 
-                  <div className="flex items-center gap-3 text-gray-300">
-                    <div className="w-8 h-8 bg-gold-500 flex items-center justify-center">
-                      <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
-                        <path strokeLinecap="square" strokeLinejoin="miter" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="square" strokeLinejoin="miter" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <div className="flex items-center gap-3 text-gray-700">
+                    <div className="w-10 h-10 bg-gradient-to-br from-gold-400 to-gold-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
-                    <span className="font-bold">{event.location}</span>
+                    <span className="font-medium">{event.location}</span>
                   </div>
                 </div>
 
@@ -137,34 +133,32 @@ export default function Events() {
                   href="https://www.facebook.com/AquinasMissionBouts"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group/btn relative w-full px-6 py-4 bg-gold-500 hover:bg-gold-400 text-black font-black uppercase tracking-wider transition-all duration-300 shadow-xl border-2 border-black block text-center overflow-hidden"
+                  className="w-full px-6 py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg block text-center"
                 >
-                  <span className="relative z-10">Learn More on Facebook</span>
-                  <div className="absolute inset-0 bg-white/30 transform -skew-x-12 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
+                  Learn More on Facebook
                 </a>
               </div>
 
-              {/* Bottom tape */}
-              <div className="h-2 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500" />
+              {/* Bottom accent */}
+              <div className="h-1 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600" />
             </div>
           ))}
         </div>
 
-        <div className="text-center bg-gradient-to-br from-maroon-950 to-black p-10 border-4 border-gold-500 shadow-2xl">
-          <h3 className="text-3xl font-black text-white mb-3 uppercase tracking-tight">
-            Never Miss a <span className="text-gold-500">Fight</span>
+        <div className="text-center bg-white p-10 rounded-2xl shadow-lg border border-gray-200">
+          <h3 className="text-3xl font-bold text-gray-900 mb-3">
+            Never Miss a <span className="text-gold-600">Fight</span>
           </h3>
-          <p className="text-gray-300 mb-8 font-bold text-lg">
+          <p className="text-gray-600 mb-8 text-lg">
             Follow us on Facebook for real-time updates, fight schedules, and special events.
           </p>
           <a
             href="https://www.facebook.com/AquinasMissionBouts/events"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-block px-12 py-5 bg-gold-500 hover:bg-gold-400 text-black font-black text-xl uppercase tracking-wider transition-all duration-300 transform hover:scale-105 shadow-2xl border-2 border-black overflow-hidden"
+            className="inline-block px-10 py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white font-semibold text-lg rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
           >
-            <span className="relative z-10">View All Events</span>
-            <div className="absolute inset-0 bg-white/30 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            View All Events
           </a>
         </div>
       </div>

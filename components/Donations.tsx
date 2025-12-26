@@ -71,51 +71,45 @@ export default function Donations() {
   };
 
   return (
-    <section id="donate" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-maroon-950 via-black to-gray-900 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-concrete opacity-20" />
-
-      {/* Spotlight effect */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl" />
-
+    <section id="donate" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-block mb-4 px-6 py-2 bg-gold-500 border-2 border-black">
-            <span className="text-black font-black text-sm uppercase tracking-widest">Support The Program</span>
+          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-gold-50 to-gold-100 rounded-full shadow-sm">
+            <span className="text-gold-600 font-semibold text-sm tracking-wide">Support The Program</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4 uppercase tracking-tight">
-            Fuel The <span className="text-gold-500">Fight</span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+            Fuel The <span className="text-gold-600">Fight</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-bold mb-4">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
             Your donation helps provide equipment, training, and opportunities for young athletes to become champions
           </p>
-          <p className="text-lg text-gray-400">
+          <p className="text-lg text-gray-500">
             100% of your donation goes directly to Aquinas Boxing when you opt to cover processing fees
           </p>
-          <div className="w-32 h-2 bg-gold-500 mx-auto mt-6 shadow-lg" style={{boxShadow: '0 0 20px rgba(234, 179, 8, 0.5)'}} />
+          <div className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto mt-6 rounded-full" />
         </div>
 
         {/* Donation Form */}
-        <div className="bg-gradient-to-br from-gray-900 to-black border-4 border-gold-500 relative overflow-hidden shadow-2xl">
-          {/* Top tape effect */}
-          <div className="h-2 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500" />
+        <div className="bg-white rounded-2xl border border-gray-200 relative overflow-hidden shadow-lg">
+          {/* Top accent */}
+          <div className="h-1 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600" />
 
           <div className="p-8 md:p-12">
             <form onSubmit={handleDonate} className="space-y-8">
               {/* Donation Type Toggle */}
               <div>
-                <p className="text-sm font-black text-gold-400 uppercase tracking-wider mb-4 text-center">
+                <p className="text-sm font-semibold text-gray-700 mb-4 text-center">
                   Donation Frequency
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <button
                     type="button"
                     onClick={() => setDonationType('one-time')}
-                    className={`px-6 py-4 font-black uppercase tracking-wide border-2 transition-all ${
+                    className={`px-6 py-4 font-semibold rounded-lg transition-all ${
                       donationType === 'one-time'
-                        ? 'bg-gold-500 text-black border-black'
-                        : 'bg-black text-white border-gray-700 hover:border-gold-500'
+                        ? 'bg-gradient-to-r from-gold-500 to-gold-600 text-white shadow-md'
+                        : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200'
                     }`}
                   >
                     One-Time
@@ -123,10 +117,10 @@ export default function Donations() {
                   <button
                     type="button"
                     onClick={() => setDonationType('monthly')}
-                    className={`px-6 py-4 font-black uppercase tracking-wide border-2 transition-all ${
+                    className={`px-6 py-4 font-semibold rounded-lg transition-all ${
                       donationType === 'monthly'
-                        ? 'bg-gold-500 text-black border-black'
-                        : 'bg-black text-white border-gray-700 hover:border-gold-500'
+                        ? 'bg-gradient-to-r from-gold-500 to-gold-600 text-white shadow-md'
+                        : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200'
                     }`}
                   >
                     Monthly
@@ -136,7 +130,7 @@ export default function Donations() {
 
               {/* Preset Amounts */}
               <div>
-                <p className="text-sm font-black text-gold-400 uppercase tracking-wider mb-4 text-center">
+                <p className="text-sm font-semibold text-gray-700 mb-4 text-center">
                   Select Amount
                 </p>
                 <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
@@ -148,10 +142,10 @@ export default function Donations() {
                         setAmount(preset);
                         setCustomAmount('');
                       }}
-                      className={`px-4 py-6 font-black text-xl border-2 transition-all ${
+                      className={`px-4 py-6 font-bold text-xl rounded-lg transition-all ${
                         amount === preset
-                          ? 'bg-gold-500 text-black border-black scale-105'
-                          : 'bg-black text-white border-gray-700 hover:border-gold-500 hover:scale-105'
+                          ? 'bg-gradient-to-r from-gold-500 to-gold-600 text-white shadow-md scale-105'
+                          : 'bg-gray-50 text-gray-700 hover:bg-gray-100 hover:scale-105 border border-gray-200'
                       }`}
                     >
                       ${preset}
@@ -162,11 +156,11 @@ export default function Donations() {
 
               {/* Custom Amount */}
               <div>
-                <p className="text-sm font-black text-gold-400 uppercase tracking-wider mb-4 text-center">
+                <p className="text-sm font-semibold text-gray-700 mb-4 text-center">
                   Or Enter Custom Amount
                 </p>
                 <div className="relative max-w-md mx-auto">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl font-black text-gray-500">$</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl font-bold text-gray-400">$</span>
                   <input
                     type="number"
                     min="1"
@@ -177,26 +171,26 @@ export default function Donations() {
                       setAmount(null);
                     }}
                     placeholder="0.00"
-                    className="w-full pl-12 pr-4 py-4 bg-black border-2 border-gray-700 focus:border-gold-500 text-white text-2xl font-black text-center placeholder-gray-600 transition-colors outline-none"
+                    className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 text-2xl font-bold text-center placeholder-gray-400 transition-all outline-none"
                   />
                 </div>
               </div>
 
               {/* Fee Coverage Option */}
               {selectedAmount > 0 && (
-                <div className="bg-maroon-950/30 border-2 border-maroon-800 p-6">
+                <div className="bg-gradient-to-br from-gold-50 to-gold-100/50 border border-gold-200 rounded-lg p-6">
                   <label className="flex items-start gap-4 cursor-pointer group">
                     <input
                       type="checkbox"
                       checked={coverFees}
                       onChange={(e) => setCoverFees(e.target.checked)}
-                      className="w-6 h-6 mt-1 bg-black border-2 border-gold-500 checked:bg-gold-500 cursor-pointer flex-shrink-0"
+                      className="w-6 h-6 mt-1 rounded border-2 border-gold-500 text-gold-600 focus:ring-2 focus:ring-gold-500 cursor-pointer flex-shrink-0"
                     />
                     <div className="flex-1">
-                      <p className="text-white font-black text-lg mb-2 group-hover:text-gold-400 transition-colors">
+                      <p className="text-gray-900 font-semibold text-lg mb-2 group-hover:text-gold-600 transition-colors">
                         Cover Processing Fees (${stripeFee.toFixed(2)})
                       </p>
-                      <p className="text-gray-400 text-sm font-semibold">
+                      <p className="text-gray-600 text-sm">
                         {coverFees
                           ? `You'll be charged $${totalCharge.toFixed(2)} and Aquinas Boxing receives the full $${selectedAmount.toFixed(2)}`
                           : `You'll be charged $${selectedAmount.toFixed(2)} and Aquinas Boxing receives $${programReceives.toFixed(2)} after fees`
@@ -208,9 +202,9 @@ export default function Donations() {
               )}
 
               {/* Donor Information */}
-              <div className="border-t-2 border-maroon-800 pt-8 space-y-4">
+              <div className="border-t border-gray-200 pt-8 space-y-4">
                 <div>
-                  <label htmlFor="donor-name" className="block text-sm font-black text-gold-400 uppercase tracking-wider mb-2">
+                  <label htmlFor="donor-name" className="block text-sm font-semibold text-gray-700 mb-2">
                     Your Name *
                   </label>
                   <input
@@ -219,13 +213,13 @@ export default function Donations() {
                     value={donorName}
                     onChange={(e) => setDonorName(e.target.value)}
                     required
-                    className="w-full px-4 py-3 bg-black border-2 border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                     placeholder="John Doe"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="donor-email" className="block text-sm font-black text-gold-400 uppercase tracking-wider mb-2">
+                  <label htmlFor="donor-email" className="block text-sm font-semibold text-gray-700 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -234,7 +228,7 @@ export default function Donations() {
                     value={donorEmail}
                     onChange={(e) => setDonorEmail(e.target.value)}
                     required
-                    className="w-full px-4 py-3 bg-black border-2 border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                     placeholder="john@example.com"
                   />
                   <p className="text-xs text-gray-500 mt-2">For donation receipt and updates</p>
@@ -243,24 +237,24 @@ export default function Donations() {
 
               {/* Donation Summary */}
               {selectedAmount > 0 && (
-                <div className="bg-black border-2 border-gold-500 p-6">
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-lg p-6">
                   <div className="space-y-3">
-                    <div className="flex justify-between items-center text-white font-bold">
+                    <div className="flex justify-between items-center text-gray-900 font-semibold">
                       <span>{donationType === 'monthly' ? 'Monthly ' : ''}Donation:</span>
                       <span className="text-2xl">${selectedAmount.toFixed(2)}</span>
                     </div>
                     {coverFees && (
-                      <div className="flex justify-between items-center text-gray-400 text-sm font-bold">
+                      <div className="flex justify-between items-center text-gray-600 text-sm">
                         <span>Processing Fee:</span>
                         <span>+${stripeFee.toFixed(2)}</span>
                       </div>
                     )}
-                    <div className="h-px bg-gold-500" />
-                    <div className="flex justify-between items-center text-gold-400 font-black text-xl">
+                    <div className="h-px bg-gray-300" />
+                    <div className="flex justify-between items-center text-gold-600 font-bold text-xl">
                       <span>Total{donationType === 'monthly' ? '/month' : ''}:</span>
                       <span>${totalCharge.toFixed(2)}</span>
                     </div>
-                    <div className="text-center text-green-400 font-bold text-sm pt-2">
+                    <div className="text-center text-green-600 font-medium text-sm pt-2">
                       ✓ Aquinas Boxing receives ${programReceives.toFixed(2)}
                     </div>
                   </div>
@@ -271,48 +265,45 @@ export default function Donations() {
               <button
                 type="submit"
                 disabled={isProcessing || !selectedAmount || selectedAmount <= 0}
-                className="group relative w-full px-8 py-6 bg-gold-500 hover:bg-gold-400 disabled:bg-gray-600 disabled:cursor-not-allowed text-black font-black text-2xl uppercase tracking-wider transition-all duration-300 shadow-2xl border-2 border-black overflow-hidden"
+                className="w-full px-8 py-5 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-semibold text-xl rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
               >
-                <span className="relative z-10">
-                  {isProcessing
-                    ? 'Processing...'
-                    : donationType === 'monthly'
-                      ? `Donate $${totalCharge.toFixed(2)}/Month`
-                      : `Donate $${totalCharge.toFixed(2)}`
-                  }
-                </span>
-                <div className="absolute inset-0 bg-white/30 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                {isProcessing
+                  ? 'Processing...'
+                  : donationType === 'monthly'
+                    ? `Donate $${totalCharge.toFixed(2)}/Month`
+                    : `Donate $${totalCharge.toFixed(2)}`
+                }
               </button>
 
               {/* Secure Payment Badge */}
-              <div className="flex items-center justify-center gap-3 text-gray-400 text-sm">
+              <div className="flex items-center justify-center gap-3 text-gray-500 text-sm">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                 </svg>
-                <span className="font-bold">Secure payment powered by Stripe</span>
+                <span className="font-medium">Secure payment powered by Stripe</span>
               </div>
             </form>
           </div>
 
-          {/* Bottom tape effect */}
-          <div className="h-2 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500" />
+          {/* Bottom accent */}
+          <div className="h-1 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600" />
         </div>
 
         {/* Impact Statement */}
         <div className="mt-12 text-center">
-          <p className="text-gray-400 font-bold text-lg mb-6">Your donation helps provide:</p>
+          <p className="text-gray-600 font-semibold text-lg mb-6">Your donation helps provide:</p>
           <div className="grid sm:grid-cols-3 gap-6">
-            <div className="bg-black/50 border border-gold-500/30 p-6">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
               <div className="text-4xl mb-3">🥊</div>
-              <p className="text-white font-black uppercase text-sm">Training Equipment</p>
+              <p className="text-gray-900 font-semibold text-sm">Training Equipment</p>
             </div>
-            <div className="bg-black/50 border border-gold-500/30 p-6">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
               <div className="text-4xl mb-3">👔</div>
-              <p className="text-white font-black uppercase text-sm">Competition Gear</p>
+              <p className="text-gray-900 font-semibold text-sm">Competition Gear</p>
             </div>
-            <div className="bg-black/50 border border-gold-500/30 p-6">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
               <div className="text-4xl mb-3">🎓</div>
-              <p className="text-white font-black uppercase text-sm">Athlete Development</p>
+              <p className="text-gray-900 font-semibold text-sm">Athlete Development</p>
             </div>
           </div>
         </div>
