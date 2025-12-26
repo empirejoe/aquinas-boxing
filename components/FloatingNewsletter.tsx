@@ -13,9 +13,6 @@ export default function FloatingNewsletter() {
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
-  const [preferEmail, setPreferEmail] = useState(true);
-  const [preferSMS, setPreferSMS] = useState(false);
-  const [preferMail, setPreferMail] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [isMinimized, setIsMinimized] = useState(false);
@@ -38,13 +35,13 @@ export default function FloatingNewsletter() {
         body: JSON.stringify({
           email,
           custom_fields: {
-            phone: preferSMS ? phone : '',
+            phone: phone || '',
             name,
-            mailing_address: preferMail ? address : '',
+            mailing_address: address || '',
             preferences: {
-              email: preferEmail,
-              sms: preferSMS,
-              mail: preferMail,
+              email: true,
+              sms: phone ? true : false,
+              mail: address ? true : false,
             }
           },
           reactivate_existing: false,
@@ -61,9 +58,6 @@ export default function FloatingNewsletter() {
           setPhone('');
           setName('');
           setAddress('');
-          setPreferEmail(true);
-          setPreferSMS(false);
-          setPreferMail(false);
           setSubmitMessage('');
         }, 3000);
       } else {
@@ -186,7 +180,7 @@ export default function FloatingNewsletter() {
                 {/* Email */}
                 <div>
                   <label htmlFor="modal-email" className="block text-xs font-black text-gold-400 uppercase tracking-wider mb-2">
-                    Email *
+                    📧 Email *
                   </label>
                   <input
                     type="email"
@@ -199,80 +193,42 @@ export default function FloatingNewsletter() {
                   />
                 </div>
 
-                {/* Preferences */}
-                <div className="pt-3 border-t-2 border-maroon-800">
-                  <p className="text-xs font-black text-white uppercase tracking-wider mb-3">
-                    How to reach you:
-                  </p>
+                {/* Phone */}
+                <div>
+                  <label htmlFor="modal-phone" className="block text-xs font-black text-gold-400 uppercase tracking-wider mb-2">
+                    📱 Phone (Optional)
+                  </label>
+                  <input
+                    type="tel"
+                    id="modal-phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full px-4 py-3 bg-black border-2 border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none"
+                    placeholder="(555) 123-4567"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">For text message updates</p>
+                </div>
 
-                  <div className="space-y-2">
-                    {/* Email Checkbox */}
-                    <label className="flex items-center gap-2 cursor-pointer group">
-                      <input
-                        type="checkbox"
-                        checked={preferEmail}
-                        onChange={(e) => setPreferEmail(e.target.checked)}
-                        className="w-4 h-4"
-                      />
-                      <span className="text-sm text-gray-300 font-semibold group-hover:text-gold-400 transition-colors">
-                        📧 Email
-                      </span>
-                    </label>
-
-                    {/* SMS Checkbox */}
-                    <label className="flex items-center gap-2 cursor-pointer group">
-                      <input
-                        type="checkbox"
-                        checked={preferSMS}
-                        onChange={(e) => setPreferSMS(e.target.checked)}
-                        className="w-4 h-4"
-                      />
-                      <span className="text-sm text-gray-300 font-semibold group-hover:text-gold-400 transition-colors">
-                        📱 Text
-                      </span>
-                    </label>
-
-                    {preferSMS && (
-                      <input
-                        type="tel"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        required={preferSMS}
-                        className="w-full px-3 py-2 bg-black border border-gray-700 focus:border-gold-500 text-white text-sm font-bold placeholder-gray-500 transition-colors outline-none ml-6"
-                        placeholder="(555) 123-4567"
-                      />
-                    )}
-
-                    {/* Physical Mail Checkbox */}
-                    <label className="flex items-center gap-2 cursor-pointer group">
-                      <input
-                        type="checkbox"
-                        checked={preferMail}
-                        onChange={(e) => setPreferMail(e.target.checked)}
-                        className="w-4 h-4"
-                      />
-                      <span className="text-sm text-gray-300 font-semibold group-hover:text-gold-400 transition-colors">
-                        📬 Mail
-                      </span>
-                    </label>
-
-                    {preferMail && (
-                      <textarea
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                        required={preferMail}
-                        rows={2}
-                        className="w-full px-3 py-2 bg-black border border-gray-700 focus:border-gold-500 text-white text-sm font-bold placeholder-gray-500 transition-colors outline-none resize-none ml-6"
-                        placeholder="Street Address&#10;City, State ZIP"
-                      />
-                    )}
-                  </div>
+                {/* Mailing Address */}
+                <div>
+                  <label htmlFor="modal-address" className="block text-xs font-black text-gold-400 uppercase tracking-wider mb-2">
+                    📬 Mailing Address (Optional)
+                  </label>
+                  <textarea
+                    id="modal-address"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    rows={3}
+                    className="w-full px-4 py-3 bg-black border-2 border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none resize-none"
+                    placeholder="Street Address&#10;City, State ZIP"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">For physical mail updates</p>
                 </div>
 
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting || (!preferEmail && !preferSMS && !preferMail)}
+                  disabled={isSubmitting}
                   className="group relative w-full px-6 py-4 bg-gold-500 hover:bg-gold-400 disabled:bg-gray-600 disabled:cursor-not-allowed text-black font-black text-lg uppercase tracking-wider transition-all duration-300 shadow-xl border-2 border-black overflow-hidden"
                 >
                   <span className="relative z-10">
