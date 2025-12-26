@@ -12,7 +12,10 @@ export default function FloatingNewsletter() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
-  const [address, setAddress] = useState('');
+  const [streetAddress, setStreetAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [zipCode, setZipCode] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [isMinimized, setIsMinimized] = useState(false);
@@ -37,11 +40,17 @@ export default function FloatingNewsletter() {
           custom_fields: {
             phone: phone || '',
             name,
-            mailing_address: address || '',
+            street_address: streetAddress || '',
+            city: city || '',
+            state: state || '',
+            zip_code: zipCode || '',
+            mailing_address: (streetAddress || city || state || zipCode)
+              ? `${streetAddress}\n${city}, ${state} ${zipCode}`.trim()
+              : '',
             preferences: {
               email: true,
               sms: phone ? true : false,
-              mail: address ? true : false,
+              mail: (streetAddress || city || state || zipCode) ? true : false,
             }
           },
           reactivate_existing: false,
@@ -57,7 +66,10 @@ export default function FloatingNewsletter() {
           setEmail('');
           setPhone('');
           setName('');
-          setAddress('');
+          setStreetAddress('');
+          setCity('');
+          setState('');
+          setZipCode('');
           setSubmitMessage('');
         }, 3000);
       } else {
@@ -210,19 +222,73 @@ export default function FloatingNewsletter() {
                 </div>
 
                 {/* Mailing Address */}
-                <div>
-                  <label htmlFor="modal-address" className="block text-xs font-black text-gold-400 uppercase tracking-wider mb-2">
+                <div className="border-t-2 border-maroon-800 pt-4">
+                  <p className="text-xs font-black text-gold-400 uppercase tracking-wider mb-3">
                     📬 Mailing Address (Optional)
-                  </label>
-                  <textarea
-                    id="modal-address"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    rows={3}
-                    className="w-full px-4 py-3 bg-black border-2 border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none resize-none"
-                    placeholder="Street Address&#10;City, State ZIP"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">For physical mail updates</p>
+                  </p>
+
+                  {/* Street Address */}
+                  <div className="mb-3">
+                    <label htmlFor="modal-street" className="block text-xs font-semibold text-gray-400 mb-1">
+                      Street Address
+                    </label>
+                    <input
+                      type="text"
+                      id="modal-street"
+                      value={streetAddress}
+                      onChange={(e) => setStreetAddress(e.target.value)}
+                      className="w-full px-4 py-2 bg-black border border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none"
+                      placeholder="123 Main Street"
+                    />
+                  </div>
+
+                  {/* City */}
+                  <div className="mb-3">
+                    <label htmlFor="modal-city" className="block text-xs font-semibold text-gray-400 mb-1">
+                      City
+                    </label>
+                    <input
+                      type="text"
+                      id="modal-city"
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
+                      className="w-full px-4 py-2 bg-black border border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none"
+                      placeholder="Rochester"
+                    />
+                  </div>
+
+                  {/* State and ZIP */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label htmlFor="modal-state" className="block text-xs font-semibold text-gray-400 mb-1">
+                        State
+                      </label>
+                      <input
+                        type="text"
+                        id="modal-state"
+                        value={state}
+                        onChange={(e) => setState(e.target.value)}
+                        maxLength={2}
+                        className="w-full px-4 py-2 bg-black border border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none uppercase"
+                        placeholder="NY"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="modal-zip" className="block text-xs font-semibold text-gray-400 mb-1">
+                        ZIP Code
+                      </label>
+                      <input
+                        type="text"
+                        id="modal-zip"
+                        value={zipCode}
+                        onChange={(e) => setZipCode(e.target.value)}
+                        maxLength={10}
+                        className="w-full px-4 py-2 bg-black border border-gray-700 focus:border-gold-500 text-white font-bold placeholder-gray-500 transition-colors outline-none"
+                        placeholder="14604"
+                      />
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-2">For physical mail updates</p>
                 </div>
 
                 {/* Submit Button */}
