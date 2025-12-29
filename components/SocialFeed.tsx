@@ -10,11 +10,11 @@ export default function SocialFeed() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-gold-50 to-gold-100 rounded-full shadow-sm">
-            <span className="text-gold-600 font-semibold text-sm tracking-wide">Stay Connected</span>
+          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-maroon-50 to-gold-100 rounded-full shadow-sm">
+            <span className="text-maroon-600 font-semibold text-sm tracking-wide">Stay Connected</span>
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-            Follow Our <span className="text-gold-600">Journey</span>
+            Follow Our <span className="text-maroon-600">Journey</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Daily updates, behind-the-scenes training, and fight highlights!
@@ -57,7 +57,7 @@ export default function SocialFeed() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-900">Facebook Feed</h3>
-                <p className="text-sm text-gold-600 font-medium">@AquinasMissionBouts</p>
+                <p className="text-sm text-maroon-600 font-medium">@AquinasMissionBouts</p>
               </div>
             </div>
 
@@ -86,7 +86,7 @@ export default function SocialFeed() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-900">Instagram</h3>
-                <p className="text-sm text-gold-600 font-medium">@AqBoxing</p>
+                <p className="text-sm text-maroon-600 font-medium">@AqBoxing</p>
               </div>
             </div>
 
@@ -134,15 +134,15 @@ export default function SocialFeed() {
         {/* Call to Action */}
         <div className="text-center bg-white p-10 rounded-2xl border border-gray-200 shadow-lg">
           <h3 className="text-3xl font-bold text-gray-900 mb-3">
-            Join the <span className="text-gold-600">Fight</span>
+            Join the <span className="text-maroon-600">Fight</span>
           </h3>
           <p className="text-gray-600 mb-2 text-lg">
             Be part of our story! Tag us in your posts and use
           </p>
-          <p className="text-2xl font-bold text-gold-600 mb-6">
+          <p className="text-2xl font-bold text-maroon-600 mb-6">
             #AquinasBoxing
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-maroon-400 to-maroon-700 mx-auto rounded-full" />
         </div>
       </div>
     </section>

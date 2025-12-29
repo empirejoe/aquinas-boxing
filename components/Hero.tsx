@@ -21,20 +21,20 @@ export default function Hero() {
         {/* Header Section */}
         <div className="text-center mb-12">
           {/* Badge */}
-          <div className="inline-block mb-6 px-5 py-2 bg-gradient-to-r from-gold-50 to-gold-100 rounded-full shadow-sm">
-            <span className="text-gold-600 font-semibold text-sm tracking-wide">
+          <div className="inline-block mb-6 px-5 py-2 bg-gradient-to-r from-maroon-50 to-maroon-100 rounded-full shadow-sm border border-gold-200">
+            <span className="text-maroon-700 font-semibold text-sm tracking-wide">
               Est. 1932 • Rochester, NY
             </span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-gray-900 mb-4 tracking-tight leading-none">
-            Aquinas <span className="bg-gradient-to-r from-gold-500 to-gold-600 bg-clip-text text-transparent">Boxing</span>
+            Aquinas <span className="bg-gradient-to-r from-maroon-600 to-maroon-700 bg-clip-text text-transparent" style={{WebkitTextStroke: '1px rgba(202, 138, 4, 0.3)'}}>Boxing</span>
           </h1>
 
           {/* Subheadline */}
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-700 mb-6">
-            Building <span className="text-gold-600">Champions</span> Since 1932
+            Building <span className="text-maroon-700" style={{textShadow: '1px 1px 0 rgba(202, 138, 4, 0.4), -1px -1px 0 rgba(202, 138, 4, 0.2)'}}>Champions</span> Since 1932
           </h2>
 
           {/* Tagline */}
@@ -49,17 +49,17 @@ export default function Hero() {
         {/* Divider */}
         <div className="flex items-center justify-center mb-12">
           <div className="h-px w-24 bg-gray-300"></div>
-          <div className="mx-4 w-2 h-2 bg-gold-500 rounded-sm"></div>
+          <div className="mx-4 w-2 h-2 bg-maroon-600 rounded-sm ring-2 ring-gold-400"></div>
           <div className="h-px w-24 bg-gray-300"></div>
         </div>
 
         {/* Featured Sizzle Reel Video */}
         <div className="mb-16">
-          <div className="max-w-6xl mx-auto bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 shadow-2xl border-4 border-gold-500/30">
+          <div className="max-w-6xl mx-auto bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 shadow-2xl border-4 border-gold-400/40">
             {/* Video Title */}
             <div className="text-center mb-8">
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-                More Than a Sport. It's a <span className="text-gold-400">Legacy</span>.
+                More Than a Sport. It's a <span className="text-maroon-400" style={{textShadow: '0 0 20px rgba(250, 204, 21, 0.6), 1px 1px 2px rgba(202, 138, 4, 0.5)'}}>Legacy</span>.
               </h3>
               <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
                 From the first bell to the final round, Aquinas Boxing transforms young athletes into disciplined champions.
@@ -68,7 +68,7 @@ export default function Hero() {
             </div>
 
             {/* Video Container */}
-            <div className="relative w-full bg-black rounded-2xl shadow-2xl overflow-hidden border-2 border-gold-500/20" style={{ paddingBottom: '56.25%' }}>
+            <div className="relative w-full bg-black rounded-2xl shadow-2xl overflow-hidden border-2 border-gold-400/30" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 src="//www.aquinasinstitute.com/apps/embed/?v=374814"
                 title="Aquinas Boxing Program Sizzle Reel"
@@ -84,7 +84,7 @@ export default function Hero() {
                 href="https://www.aquinasinstitute.com/apps/video/watch.jsp?v=374814"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-gold-400 transition-colors font-medium"
+                className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-maroon-400 transition-colors font-medium"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -105,7 +105,7 @@ export default function Hero() {
           </a>
           <a
             href="#swag-store"
-            className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white font-semibold text-base rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-center"
+            className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-maroon-600 to-maroon-700 hover:from-maroon-700 hover:to-maroon-800 text-white font-semibold text-base rounded-lg transition-all duration-200 shadow-md hover:shadow-lg border-2 border-gold-400/20 text-center"
           >
             Shop Gear
           </a>

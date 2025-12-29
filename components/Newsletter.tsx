@@ -218,33 +218,33 @@ export default function Newsletter() {
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-gold-50 to-gold-100 rounded-full shadow-sm">
-            <span className="text-gold-600 font-semibold text-sm tracking-wide">Stay In The Ring</span>
+          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-maroon-50 to-maroon-100 rounded-full shadow-sm border border-gold-200">
+            <span className="text-maroon-700 font-semibold text-sm tracking-wide">Stay In The Ring</span>
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-            Never Miss a <span className="text-gold-600">Bout</span>
+            Never Miss a <span className="text-maroon-700" style={{textShadow: '2px 2px 0 rgba(202, 138, 4, 0.4), -1px -1px 0 rgba(202, 138, 4, 0.2)'}}>Bout</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Get fight schedules, training updates, and exclusive Aquinas Boxing news delivered straight to you
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto mt-6 rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-maroon-500 to-maroon-700 mx-auto mt-6 rounded-full shadow-sm" />
         </div>
 
         {/* Success Confirmation or Form */}
         <div className="bg-white rounded-2xl border border-gray-200 p-8 md:p-12 shadow-lg relative">
           {/* Top accent */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 rounded-t-2xl" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-maroon-500 via-maroon-600 to-maroon-700 rounded-t-2xl" />
 
           {showSuccess ? (
             /* Success Confirmation */
             <div className="text-center py-8">
               <div className="mb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full mx-auto flex items-center justify-center mb-4 shadow-lg">
+                <div className="w-20 h-20 bg-gradient-to-br from-maroon-500 to-maroon-700 rounded-full mx-auto flex items-center justify-center mb-4 shadow-lg ring-4 ring-gold-200">
                   <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3" style={{textShadow: '1px 1px 0 rgba(250, 204, 21, 0.3)'}}>
                   You're In! 🥊
                 </h3>
                 <p className="text-xl text-gray-600 mb-2">
@@ -258,7 +258,7 @@ export default function Newsletter() {
               <div className="pt-6 border-t border-gray-200">
                 <button
                   onClick={resetForm}
-                  className="text-gold-600 hover:text-gold-700 font-semibold text-sm hover:underline transition-all"
+                  className="text-maroon-600 hover:text-maroon-700 font-semibold text-sm hover:underline transition-all"
                 >
                   ← Make another submission
                 </button>
@@ -279,7 +279,7 @@ export default function Newsletter() {
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                   placeholder="First name"
                 />
               </div>
@@ -293,7 +293,7 @@ export default function Newsletter() {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                   placeholder="Last name"
                 />
               </div>
@@ -310,7 +310,7 @@ export default function Newsletter() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                 placeholder="your@email.com"
               />
             </div>
@@ -335,7 +335,7 @@ export default function Newsletter() {
                   value={phone}
                   onChange={handlePhoneChange}
                   onBlur={handlePhoneBlur}
-                  className={`w-full px-4 py-3 bg-gray-50 border ${phoneError ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none`}
+                  className={`w-full px-4 py-3 bg-gray-50 border ${phoneError ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none`}
                   placeholder="(555) 123-4567"
                 />
                 {phoneError && (
@@ -353,7 +353,7 @@ export default function Newsletter() {
                   type="text"
                   value={streetAddress}
                   onChange={(e) => setStreetAddress(e.target.value)}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                   placeholder="Street Address"
                 />
 
@@ -361,7 +361,7 @@ export default function Newsletter() {
                   type="text"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                   placeholder="City"
                 />
 
@@ -369,7 +369,7 @@ export default function Newsletter() {
                   <select
                     value={state}
                     onChange={(e) => setState(e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 transition-all outline-none"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 transition-all outline-none"
                   >
                     <option value="">Select State</option>
                     {US_STATES.map((s) => (
@@ -385,7 +385,7 @@ export default function Newsletter() {
                       onChange={handleZipChange}
                       onBlur={handleZipBlur}
                       maxLength={10}
-                      className={`w-full px-4 py-3 bg-gray-50 border ${zipError ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none`}
+                      className={`w-full px-4 py-3 bg-gray-50 border ${zipError ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none`}
                       placeholder="ZIP Code"
                     />
                     {zipError && (
@@ -400,7 +400,7 @@ export default function Newsletter() {
             <button
               type="submit"
               disabled={isSubmitting || !!phoneError || !!zipError}
-              className="w-full px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-semibold text-lg rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+              className="w-full px-8 py-4 bg-gradient-to-r from-maroon-600 to-maroon-700 hover:from-maroon-700 hover:to-maroon-800 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-semibold text-lg rounded-lg transition-all duration-300 shadow-md hover:shadow-lg border-2 border-gold-400/20"
             >
               {isSubmitting ? 'Signing Up...' : 'Join The Fight'}
             </button>

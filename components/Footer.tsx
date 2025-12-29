@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 text-gold-400">
+            <h3 className="text-2xl font-bold mb-4 text-maroon-400">
               Aquinas Boxing Program
             </h3>
             <p className="text-gray-400 mb-6 max-w-md">
@@ -51,7 +51,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-4 text-gold-400">Quick Links</h4>
+            <h4 className="text-lg font-bold mb-4 text-maroon-400">Quick Links</h4>
             <ul className="space-y-2">
               <li>
                 <a href="#about" className="text-gray-400 hover:text-white transition-colors">
@@ -77,7 +77,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-4 text-gold-400">Contact</h4>
+            <h4 className="text-lg font-bold mb-4 text-maroon-400">Contact</h4>
             <ul className="space-y-2 text-gray-400">
               <li className="flex items-start gap-2">
                 <svg className="w-5 h-5 text-maroon-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

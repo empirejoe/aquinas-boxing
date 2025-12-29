@@ -247,9 +247,9 @@ export default function FloatingNewsletter() {
         {!isMinimized ? (
           <button
             onClick={() => setIsModalOpen(true)}
-            className="group relative bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 hover:from-gold-300 hover:via-gold-400 hover:to-gold-500 text-black font-black px-8 py-5 shadow-2xl border-3 border-black transition-all duration-300 hover:scale-110 flex items-center gap-4 animate-pulse-slow"
+            className="group relative bg-gradient-to-br from-maroon-500 via-maroon-600 to-maroon-700 hover:from-maroon-400 hover:via-maroon-500 hover:to-maroon-600 text-white font-black px-8 py-5 shadow-2xl border-3 border-gold-400 transition-all duration-300 hover:scale-110 flex items-center gap-4 animate-pulse-slow"
             style={{
-              boxShadow: '0 0 40px rgba(234, 179, 8, 0.6), 0 0 80px rgba(234, 179, 8, 0.3), 0 20px 60px rgba(0, 0, 0, 0.5)'
+              boxShadow: '0 0 40px rgba(139, 31, 77, 0.6), 0 0 80px rgba(139, 31, 77, 0.3), 0 20px 60px rgba(0, 0, 0, 0.5)'
             }}
             aria-label="Sign up for newsletter"
           >
@@ -271,7 +271,7 @@ export default function FloatingNewsletter() {
                 e.stopPropagation();
                 setIsMinimized(true);
               }}
-              className="absolute -top-3 -left-3 w-8 h-8 bg-black hover:bg-gray-800 border-2 border-gold-500 flex items-center justify-center transition-colors shadow-lg"
+              className="absolute -top-3 -left-3 w-8 h-8 bg-maroon-900 hover:bg-maroon-800 border-2 border-gold-400 flex items-center justify-center transition-colors shadow-lg"
               aria-label="Minimize"
             >
               <svg className="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
@@ -282,9 +282,9 @@ export default function FloatingNewsletter() {
         ) : (
           <button
             onClick={() => setIsMinimized(false)}
-            className="w-20 h-20 bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 hover:from-gold-300 hover:via-gold-400 hover:to-gold-500 text-black rounded-full shadow-2xl border-3 border-black flex items-center justify-center transition-all duration-300 hover:scale-110 animate-pulse-slow"
+            className="w-20 h-20 bg-gradient-to-br from-maroon-500 via-maroon-600 to-maroon-700 hover:from-maroon-400 hover:via-maroon-500 hover:to-maroon-600 text-white rounded-full shadow-2xl border-3 border-gold-400 flex items-center justify-center transition-all duration-300 hover:scale-110 animate-pulse-slow"
             style={{
-              boxShadow: '0 0 40px rgba(234, 179, 8, 0.6), 0 0 80px rgba(234, 179, 8, 0.3), 0 20px 60px rgba(0, 0, 0, 0.5)'
+              boxShadow: '0 0 40px rgba(139, 31, 77, 0.6), 0 0 80px rgba(139, 31, 77, 0.3), 0 20px 60px rgba(0, 0, 0, 0.5)'
             }}
             aria-label="Show newsletter signup"
           >
@@ -335,12 +335,12 @@ export default function FloatingNewsletter() {
                 /* Success Confirmation */
                 <div className="text-center py-4">
                   <div className="mb-6">
-                    <div className="w-20 h-20 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full mx-auto flex items-center justify-center mb-4 shadow-lg">
+                    <div className="w-20 h-20 bg-gradient-to-br from-maroon-500 to-maroon-700 rounded-full mx-auto flex items-center justify-center mb-4 shadow-lg ring-4 ring-gold-200">
                       <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3" style={{textShadow: '1px 1px 0 rgba(250, 204, 21, 0.3)'}}>
                       You're In! 🥊
                     </h3>
                     <p className="text-xl text-gray-600 mb-2">
@@ -354,7 +354,7 @@ export default function FloatingNewsletter() {
                   <div className="pt-6 border-t border-gray-200">
                     <button
                       onClick={resetForm}
-                      className="text-gold-600 hover:text-gold-700 font-semibold text-sm hover:underline transition-all"
+                      className="text-maroon-600 hover:text-maroon-700 font-semibold text-sm hover:underline transition-all"
                     >
                       ← Make another submission
                     </button>
@@ -364,7 +364,7 @@ export default function FloatingNewsletter() {
                 <>
                   {/* Header */}
                   <div className="text-center mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 mb-4">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-maroon-500 to-maroon-700 mb-4 ring-4 ring-gold-200">
                       <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
@@ -391,7 +391,7 @@ export default function FloatingNewsletter() {
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       required
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                       placeholder="First name"
                     />
                   </div>
@@ -405,7 +405,7 @@ export default function FloatingNewsletter() {
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       required
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                       placeholder="Last name"
                     />
                   </div>
@@ -422,7 +422,7 @@ export default function FloatingNewsletter() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -438,7 +438,7 @@ export default function FloatingNewsletter() {
                     value={phone}
                     onChange={handlePhoneChange}
                     onBlur={handlePhoneBlur}
-                    className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none ${phoneError ? 'border-red-500 focus:ring-red-500' : 'border-gray-300'}`}
+                    className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none ${phoneError ? 'border-red-500 focus:ring-red-500' : 'border-gray-300'}`}
                     placeholder="(555) 123-4567"
                   />
                   {phoneError ? (
@@ -461,7 +461,7 @@ export default function FloatingNewsletter() {
                       id="modal-street"
                       value={streetAddress}
                       onChange={(e) => setStreetAddress(e.target.value)}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                       placeholder="Street Address"
                     />
                   </div>
@@ -473,7 +473,7 @@ export default function FloatingNewsletter() {
                       id="modal-city"
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                       placeholder="City"
                     />
                   </div>
@@ -485,7 +485,7 @@ export default function FloatingNewsletter() {
                         id="modal-state"
                         value={state}
                         onChange={(e) => setState(e.target.value)}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 transition-all outline-none"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 transition-all outline-none"
                       >
                         <option value="">Select State</option>
                         {US_STATES.map((s) => (
@@ -503,7 +503,7 @@ export default function FloatingNewsletter() {
                         onChange={handleZipChange}
                         onBlur={handleZipBlur}
                         maxLength={10}
-                        className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none ${zipError ? 'border-red-500 focus:ring-red-500' : 'border-gray-300'}`}
+                        className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none ${zipError ? 'border-red-500 focus:ring-red-500' : 'border-gray-300'}`}
                         placeholder="ZIP Code"
                       />
                       {zipError && (
@@ -518,7 +518,7 @@ export default function FloatingNewsletter() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full mt-6 px-6 py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                  className="w-full mt-6 px-6 py-3.5 bg-gradient-to-r from-maroon-600 to-maroon-700 hover:from-maroon-700 hover:to-maroon-800 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg border-2 border-gold-400/20"
                 >
                   {isSubmitting ? 'Signing Up...' : 'Subscribe'}
                 </button>

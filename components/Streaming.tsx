@@ -19,7 +19,7 @@ export default function Streaming() {
       <div className="absolute inset-0 bg-concrete opacity-20" />
 
       {/* Spotlight effect */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-maroon-500/10 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
@@ -28,7 +28,7 @@ export default function Streaming() {
             <span className="text-white font-black text-sm uppercase tracking-widest">Live Streaming</span>
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4 uppercase tracking-tight">
-            Watch the <span className="text-gold-500">Action</span> Live
+            Watch the <span className="text-maroon-500">Action</span> Live
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto font-bold">
             Watch live streams during Mission Bouts and major events
@@ -46,25 +46,25 @@ export default function Streaming() {
           className="group relative block w-full bg-gradient-to-br from-black via-gray-900 to-black border-4 border-gold-500 hover:border-gold-400 shadow-2xl transition-all duration-300 hover:scale-[1.02] overflow-hidden"
         >
           {/* Corner posts effect */}
-          <div className="absolute -top-3 -left-3 w-6 h-6 bg-gold-500 border-2 border-black z-10" />
-          <div className="absolute -top-3 -right-3 w-6 h-6 bg-gold-500 border-2 border-black z-10" />
-          <div className="absolute -bottom-3 -left-3 w-6 h-6 bg-gold-500 border-2 border-black z-10" />
-          <div className="absolute -bottom-3 -right-3 w-6 h-6 bg-gold-500 border-2 border-black z-10" />
+          <div className="absolute -top-3 -left-3 w-6 h-6 bg-maroon-500 border-2 border-black z-10" />
+          <div className="absolute -top-3 -right-3 w-6 h-6 bg-maroon-500 border-2 border-black z-10" />
+          <div className="absolute -bottom-3 -left-3 w-6 h-6 bg-maroon-500 border-2 border-black z-10" />
+          <div className="absolute -bottom-3 -right-3 w-6 h-6 bg-maroon-500 border-2 border-black z-10" />
 
           {/* Background glow effect */}
-          <div className="absolute inset-0 bg-gradient-radial from-gold-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-radial from-maroon-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           <div className="relative py-20 px-8 text-center">
             {/* Hudl Logo Text - Large and Bold */}
             <div className="mb-6">
-              <h3 className="text-7xl sm:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter mb-4 group-hover:text-gold-400 transition-colors duration-300" style={{textShadow: '0 0 40px rgba(234, 179, 8, 0.3)'}}>
+              <h3 className="text-7xl sm:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter mb-4 group-hover:text-maroon-400 transition-colors duration-300" style={{textShadow: '0 0 40px rgba(234, 179, 8, 0.3)'}}>
                 HUDL
               </h3>
-              <div className="w-32 h-2 bg-gold-500 mx-auto mb-6" />
+              <div className="w-32 h-2 bg-maroon-500 mx-auto mb-6" />
             </div>
 
             {/* Call to Action */}
-            <p className="text-2xl sm:text-3xl font-black text-gold-400 uppercase tracking-wide mb-4">
+            <p className="text-2xl sm:text-3xl font-black text-maroon-400 uppercase tracking-wide mb-4">
               Watch Live Fights
             </p>
             <p className="text-lg text-gray-400 font-bold uppercase tracking-wider">
@@ -73,7 +73,7 @@ export default function Streaming() {
 
             {/* Animated Arrow */}
             <div className="mt-8 transform group-hover:translate-x-2 transition-transform duration-300">
-              <svg className="w-12 h-12 mx-auto text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+              <svg className="w-12 h-12 mx-auto text-maroon-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
                 <path strokeLinecap="square" strokeLinejoin="miter" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </div>
@@ -95,7 +95,7 @@ export default function Streaming() {
             <svg className="w-6 h-6 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
               <path strokeLinecap="square" strokeLinejoin="miter" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
-            <div className="absolute inset-0 bg-gold-500/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            <div className="absolute inset-0 bg-maroon-500/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
           </a>
         </div>
       </div>

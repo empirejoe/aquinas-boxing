@@ -80,11 +80,11 @@ export default function Donations() {
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-gold-50 to-gold-100 rounded-full shadow-sm">
-            <span className="text-gold-600 font-semibold text-sm tracking-wide">Support The Program</span>
+          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-maroon-50 to-gold-100 rounded-full shadow-sm">
+            <span className="text-maroon-600 font-semibold text-sm tracking-wide">Support The Program</span>
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-            Fuel The <span className="text-gold-600">Fight</span>
+            Fuel The <span className="text-maroon-600">Fight</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
             Your donation helps provide equipment, training, and opportunities for young athletes to become champions
@@ -92,13 +92,13 @@ export default function Donations() {
           <p className="text-lg text-gray-500">
             100% of your donation goes directly to Aquinas Boxing when you opt to cover processing fees
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto mt-6 rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-maroon-400 to-maroon-700 mx-auto mt-6 rounded-full" />
         </div>
 
         {/* Donation Form */}
         <div className="bg-white rounded-2xl border border-gray-200 relative overflow-hidden shadow-lg">
           {/* Top accent */}
-          <div className="h-1 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600" />
+          <div className="h-1 bg-gradient-to-r from-maroon-400 via-gold-500 to-maroon-700" />
 
           <div className="p-8 md:p-12">
             <form onSubmit={handleDonate} className="space-y-8">
@@ -113,7 +113,7 @@ export default function Donations() {
                     onClick={() => setDonationType('one-time')}
                     className={`px-6 py-4 font-semibold rounded-lg transition-all ${
                       donationType === 'one-time'
-                        ? 'bg-gradient-to-r from-gold-500 to-gold-600 text-white shadow-md'
+                        ? 'bg-gradient-to-r from-maroon-500 to-maroon-700 text-white shadow-md'
                         : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200'
                     }`}
                   >
@@ -124,7 +124,7 @@ export default function Donations() {
                     onClick={() => setDonationType('monthly')}
                     className={`px-6 py-4 font-semibold rounded-lg transition-all ${
                       donationType === 'monthly'
-                        ? 'bg-gradient-to-r from-gold-500 to-gold-600 text-white shadow-md'
+                        ? 'bg-gradient-to-r from-maroon-500 to-maroon-700 text-white shadow-md'
                         : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200'
                     }`}
                   >
@@ -149,7 +149,7 @@ export default function Donations() {
                       }}
                       className={`px-4 py-6 font-bold text-xl rounded-lg transition-all ${
                         amount === preset
-                          ? 'bg-gradient-to-r from-gold-500 to-gold-600 text-white shadow-md scale-105'
+                          ? 'bg-gradient-to-r from-maroon-500 to-maroon-700 text-white shadow-md scale-105'
                           : 'bg-gray-50 text-gray-700 hover:bg-gray-100 hover:scale-105 border border-gray-200'
                       }`}
                     >
@@ -176,7 +176,7 @@ export default function Donations() {
                       setAmount(null);
                     }}
                     placeholder="0.00"
-                    className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 text-2xl font-bold text-center placeholder-gray-400 transition-all outline-none"
+                    className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 text-2xl font-bold text-center placeholder-gray-400 transition-all outline-none"
                   />
                 </div>
                 <p className="text-sm text-gray-500 text-center mt-2">Minimum donation: $10</p>
@@ -184,16 +184,16 @@ export default function Donations() {
 
               {/* Fee Coverage Option */}
               {selectedAmount > 0 && (
-                <div className="bg-gradient-to-br from-gold-50 to-gold-100/50 border border-gold-200 rounded-lg p-6">
+                <div className="bg-gradient-to-br from-maroon-50 to-gold-100/50 border border-gold-200 rounded-lg p-6">
                   <label className="flex items-start gap-4 cursor-pointer group">
                     <input
                       type="checkbox"
                       checked={coverFees}
                       onChange={(e) => setCoverFees(e.target.checked)}
-                      className="w-6 h-6 mt-1 rounded border-2 border-gold-500 text-gold-600 focus:ring-2 focus:ring-gold-500 cursor-pointer flex-shrink-0"
+                      className="w-6 h-6 mt-1 rounded border-2 border-gold-500 text-maroon-600 focus:ring-2 focus:ring-maroon-500 cursor-pointer flex-shrink-0"
                     />
                     <div className="flex-1">
-                      <p className="text-gray-900 font-semibold text-lg mb-2 group-hover:text-gold-600 transition-colors">
+                      <p className="text-gray-900 font-semibold text-lg mb-2 group-hover:text-maroon-600 transition-colors">
                         Cover Processing Fees (${stripeFee.toFixed(2)})
                       </p>
                       <p className="text-gray-600 text-sm">
@@ -219,7 +219,7 @@ export default function Donations() {
                     value={donorName}
                     onChange={(e) => setDonorName(e.target.value)}
                     required
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                     placeholder="John Doe"
                   />
                 </div>
@@ -234,7 +234,7 @@ export default function Donations() {
                     value={donorEmail}
                     onChange={(e) => setDonorEmail(e.target.value)}
                     required
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent text-gray-900 placeholder-gray-400 transition-all outline-none"
                     placeholder="john@example.com"
                   />
                   <p className="text-xs text-gray-500 mt-2">For donation receipt and updates</p>
@@ -256,7 +256,7 @@ export default function Donations() {
                       </div>
                     )}
                     <div className="h-px bg-gray-300" />
-                    <div className="flex justify-between items-center text-gold-600 font-bold text-xl">
+                    <div className="flex justify-between items-center text-maroon-600 font-bold text-xl">
                       <span>Total{donationType === 'monthly' ? '/month' : ''}:</span>
                       <span>${totalCharge.toFixed(2)}</span>
                     </div>
@@ -271,7 +271,7 @@ export default function Donations() {
               <button
                 type="submit"
                 disabled={isProcessing || !selectedAmount || selectedAmount <= 0}
-                className="w-full px-8 py-5 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-semibold text-xl rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                className="w-full px-8 py-5 bg-gradient-to-r from-maroon-500 to-maroon-700 hover:from-maroon-600 hover:to-gold-700 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-semibold text-xl rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 {isProcessing
                   ? 'Processing...'
@@ -292,7 +292,7 @@ export default function Donations() {
           </div>
 
           {/* Bottom accent */}
-          <div className="h-1 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600" />
+          <div className="h-1 bg-gradient-to-r from-maroon-400 via-gold-500 to-maroon-700" />
         </div>
 
         {/* Impact Statement */}
