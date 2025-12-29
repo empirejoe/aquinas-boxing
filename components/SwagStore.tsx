@@ -104,7 +104,7 @@ export default function SwagStore() {
 
         {/* Official Store Partners */}
         <div className="bg-gradient-to-br from-maroon-50 to-maroon-100 rounded-2xl p-8 mb-16 border-2 border-gold-300">
-          <h3 className="text-2xl font-bold text-maroon-900 text-center mb-6">
+          <h3 className="text-2xl font-bold text-maroon-900 text-center mb-6" style={{textShadow: '1px 1px 0 rgba(202, 138, 4, 0.3), -1px -1px 0 rgba(202, 138, 4, 0.15)'}}>
             Official Merchandise Partners
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
