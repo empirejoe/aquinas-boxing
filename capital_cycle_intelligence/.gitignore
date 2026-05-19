@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+data/capital_cycle_intelligence.db
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/manual_overrides/*
+!data/manual_overrides/.gitkeep
+output/*
+!output/.gitkeep
+logs/*
+!logs/.gitkeep
+.pytest_cache/

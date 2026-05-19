@@ -1,50 +1,119 @@
-# Capital Cycle Intelligence
+# Aquinas Boxing Program Homepage
 
-A production-quality local Python research application designed to analyze small-cap public companies that rely on dilutive capital-markets financing.
+Official website for the Aquinas Institute Boxing Program and Mission Bouts.
 
-**Research Only Disclaimer**: This is a research and intelligence platform, not an automated trading system or a generic stock scanner. It does not make trade recommendations.
+## Features
 
-## Requirements
-- Python 3.11+
-- See `requirements.txt` for dependencies.
+- **Hero Banner**: Full-screen hero with AI-generated boxing background and CTAs
+- **Streaming Section**: Embedded Hudl page for live and on-demand match viewing
+- **About Section**: Program description and Mission Bouts information
+- **Events Calendar**: Upcoming events with modern grid layout
+- **Swag Store**: Placeholder product cards ready for e-commerce integration
+- **Footer**: Navigation links and social media integration
 
-## Setup Instructions
-1. Clone the repository.
-2. Create and activate a Python virtual environment:
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate
-   ```
-3. Install the dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Tech Stack
 
-## Configuration & Usage
-Place your raw input Excel file (e.g., `2026_registered_direct_offerings.xlsx`) into the `data/raw/` directory.
+- **Next.js 15**: React framework with App Router
+- **TypeScript**: Type-safe development
+- **Tailwind CSS**: Utility-first CSS framework with custom Aquinas colors (maroon & gold)
+- **Responsive Design**: Mobile-first approach with accessibility in mind
 
-### Initialize the Database
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+
+### Installation
+
+1. Clone or download this repository
+2. Install dependencies:
+
 ```bash
-python app.py init-db
+npm install
 ```
 
-### Ingest Deals
+3. Run the development server:
+
 ```bash
-python app.py ingest-deals --file data/raw/2026_registered_direct_offerings.xlsx
+npm run dev
 ```
 
-### Fetch Prices
-```bash
-python app.py fetch-prices
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Project Structure
+
+```
+aquinas-boxing/
+├── app/
+│   ├── layout.tsx          # Root layout with metadata
+│   ├── page.tsx            # Home page integrating all components
+│   └── globals.css         # Global styles and Tailwind imports
+├── components/
+│   ├── Hero.tsx            # Hero banner component
+│   ├── Streaming.tsx       # Hudl streaming embed
+│   ├── About.tsx           # About program section
+│   ├── Events.tsx          # Events calendar
+│   ├── SwagStore.tsx       # Merchandise store
+│   └── Footer.tsx          # Site footer
+├── public/                 # Static assets (add images here)
+└── tailwind.config.ts      # Tailwind configuration with custom colors
 ```
 
-### Calculate Returns
-```bash
-python app.py calculate-returns
+## Customization
+
+### Colors
+
+The project uses custom Aquinas colors defined in `tailwind.config.ts`:
+- **Maroon**: Primary brand color (maroon-50 to maroon-950)
+- **Gold**: Accent color (gold-50 to gold-950)
+
+### Hero Background Image
+
+The Hero component currently uses a placeholder boxing image from Unsplash. To use your own image:
+
+1. Add your image to the `public/` folder (e.g., `public/hero-bg.jpg`)
+2. Update the `backgroundImage` in `components/Hero.tsx`:
+
+```tsx
+backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('/hero-bg.jpg')`
 ```
 
-### Outputs
-Data is stored locally in an SQLite database `data/capital_cycle_intelligence.db` and output logs are available in `logs/app.log`.
+### Content Updates
 
-### QC Flags
-The system generates Quality Control (QC) flags if data is missing or anomalies (like massive split discrepancies) are detected. These are logged in the `qc_errors` database table.
+All content is currently hardcoded for easy editing:
+- **Hero text**: Edit in `components/Hero.tsx`
+- **About section**: Edit in `components/About.tsx`
+- **Events**: Update the `events` array in `components/Events.tsx`
+- **Products**: Update the `products` array in `components/SwagStore.tsx`
+
+### Future Enhancements
+
+- Connect to a CMS (Contentful, Sanity, etc.) for dynamic content
+- Integrate e-commerce platform (Shopify, Stripe) for swag store
+- Add event registration system
+- Implement Google Calendar integration for events
+- Add photo gallery section
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Import your repository on [Vercel](https://vercel.com)
+3. Deploy with one click
+
+### Other Platforms
+
+```bash
+npm run build
+npm start
+```
+
+## Contact
+
+For questions or support, contact the Aquinas Institute Boxing Program.
+
+## License
+
+© 2025 Aquinas Institute Boxing Program. All rights reserved.
