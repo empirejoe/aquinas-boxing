@@ -1,0 +1,20 @@
+2026-05-19 18:45:15,093 - src.utils.logging_config - INFO - Database initialized successfully.
+2026-05-19 18:46:10,884 - src.utils.logging_config - INFO - Starting ingestion for test_deals.csv
+2026-05-19 18:46:10,980 - src.utils.logging_config - INFO - Ingestion complete. Successfully ingested: 3. Failed: 0.
+2026-05-19 18:46:58,451 - src.utils.logging_config - INFO - Starting ingestion for test_deals.csv
+2026-05-19 18:46:58,474 - src.utils.logging_config - INFO - Deal for AAPL on 2023-01-10 already exists. Skipping.
+2026-05-19 18:46:58,476 - src.utils.logging_config - INFO - Deal for TSLA on 2023-02-15 already exists. Skipping.
+2026-05-19 18:46:58,481 - src.utils.logging_config - INFO - Deal for BAD on None already exists. Skipping.
+2026-05-19 18:46:58,481 - src.utils.logging_config - INFO - Ingestion complete. Successfully ingested: 0. Failed: 0.
+2026-05-19 18:47:59,559 - src.utils.logging_config - INFO - Fetching yfinance data for AAPL from 2022-12-31 to 2023-02-25
+2026-05-19 18:48:00,674 - yfinance - ERROR - Failed to get ticker 'AAPL' reason: Expecting value: line 1 column 1 (char 0)
+2026-05-19 18:48:00,675 - yfinance - ERROR - $AAPL: possibly delisted; no timezone found
+2026-05-19 18:48:00,676 - src.utils.logging_config - WARNING - No price data returned from yfinance for AAPL
+2026-05-19 18:48:00,687 - src.utils.logging_config - INFO - Fetching yfinance data for TSLA from 2023-02-05 to 2023-04-02
+2026-05-19 18:48:01,440 - yfinance - ERROR - Failed to get ticker 'TSLA' reason: Expecting value: line 1 column 1 (char 0)
+2026-05-19 18:48:01,440 - yfinance - ERROR - $TSLA: possibly delisted; no timezone found
+2026-05-19 18:48:01,441 - src.utils.logging_config - WARNING - No price data returned from yfinance for TSLA
+2026-05-19 18:48:01,446 - src.utils.logging_config - WARNING - Deal for BAD has no announcement date. Skipping price fetch.
+2026-05-19 18:48:01,446 - src.utils.logging_config - INFO - Market data fetch complete. Success: 0. Failed: 2.
+2026-05-19 18:49:45,617 - src.utils.logging_config - WARNING - Skipping deal 3 for BAD: No announcement date.
+2026-05-19 18:49:45,617 - src.utils.logging_config - INFO - Return calculation complete. Success: 0. Failed: 2.
